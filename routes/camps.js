@@ -6,6 +6,12 @@ const { Camp } = require("../db/models");
 const router = express.Router();
 
 //Get all camps
+router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
+    const camp = await Camp.findAll();
+
+    res.json({ camp });
+}));
+
 
 //Get camp details
 router.get("/:campId", requireAuth, asyncHandler(async (req, res, next) => {
