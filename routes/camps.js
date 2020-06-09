@@ -7,7 +7,7 @@ const router = express.Router();
 
 //Get all camps
 router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
-    const camp = await Camp.findAll();
+    const campSites = await Campsite.findAll();
 
     res.json({ camp });
 }));
@@ -15,7 +15,7 @@ router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
 
 //Get camp details
 router.get("/:campId", requireAuth, asyncHandler(async (req, res, next) => {
-    const camp = await Camp.findOne({
+    const camp = await Campsite.findOne({
         where: {
             campId = req.params.campId,
         },
