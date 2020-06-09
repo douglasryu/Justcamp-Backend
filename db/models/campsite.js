@@ -1,12 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const Campsite = sequelize.define('Campsite', {
-        id: {
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
         campName: {
             type: DataTypes.STRING(50),
             allowNull: false

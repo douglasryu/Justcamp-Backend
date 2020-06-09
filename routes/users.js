@@ -70,9 +70,9 @@ router.post("/token", validateEmailAndPassword, asyncHandler(async (req, res, ne
         err.errors = ["The provided credentials were invalid."];
         return next(err);
     }
-    if (user.id = 1) {
-        guestUserToDefault();
-    }
+    // if (user.id = 1) {
+    //     guestUserToDefault();
+    // }
 
     const token = getUserToken(user);
     res.json({ token, user: user.id });

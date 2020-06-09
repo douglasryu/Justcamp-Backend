@@ -1,7 +1,7 @@
 const express = require("express");
 const { asyncHandler, campNotFoundError } = require("../utils");
 const { requireAuth } = require("../auth");
-const { Camp } = require("../db/models");
+const { Campsite } = require("../db/models");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
     const campSites = await Campsite.findAll();
 
-    res.json({ camp });
+    res.json({ campSites });
 }));
 
 
@@ -17,10 +17,12 @@ router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
 router.get("/:campId", requireAuth, asyncHandler(async (req, res, next) => {
     const camp = await Campsite.findOne({
         where: {
-            campId = req.params.campId,
+            id: req.params.campId,
         },
-        // include:
     });
 
     res.json({ camp });
 }));
+
+
+module.exports = router;

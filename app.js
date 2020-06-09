@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 // ERROR HANDLERS - Generic error handler
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    const isProduction = environment === "production";
+    const isProduction = process.env.NODE_ENV === "production";
     res.json({
         title: err.title || "Server Error",
         message: err.message,
