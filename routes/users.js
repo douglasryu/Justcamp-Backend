@@ -57,7 +57,7 @@ router.post("/", validateName, validateEmailAndPassword, asyncHandler(async (req
 ));
 
 //User log in
-router.post("/token", validateEmailAndPassword, asyncHandler(async (req, res, next) => {
+router.post("/session", validateEmailAndPassword, asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
     const user = await User.findOne({
         where: { email },
