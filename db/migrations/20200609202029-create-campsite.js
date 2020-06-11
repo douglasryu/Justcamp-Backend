@@ -12,6 +12,10 @@ module.exports = {
                 type: Sequelize.STRING(50),
                 allowNull: false
             },
+            campSummary: {
+                type: Sequelize.STRING(50),
+                allowNull: false
+            },
             campDescription: {
                 type: Sequelize.TEXT,
                 allowNull: false

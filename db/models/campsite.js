@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(50),
             allowNull: false
         },
+        campSummary: {
+            type: DataTypes.STRING(50),
+            allowNull: false
+        },
         campDescription: {
             type: DataTypes.TEXT,
             allowNull: false

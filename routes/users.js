@@ -75,6 +75,7 @@ router.post("/session", validateEmailAndPassword, asyncHandler(async (req, res, 
     // }
 
     const token = getUserToken(user);
+    console.log(user.id);
     res.json({ token, user: user.id });
 })
 );

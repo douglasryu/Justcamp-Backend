@@ -6,7 +6,7 @@ const { Campsite } = require("../db/models");
 const router = express.Router();
 
 //Get all camps
-router.get("/", requireAuth, asyncHandler(async (req, res, next) => {
+router.get("/", asyncHandler(async (req, res, next) => {
     const campSites = await Campsite.findAll();
 
     res.json({ campSites });
