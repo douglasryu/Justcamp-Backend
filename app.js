@@ -9,6 +9,7 @@ const app = express();
 const usersRouter = require("./routes/users");
 const campsRouter = require("./routes/camps");
 const reservationsRouter = require("./routes/reservations");
+const reviewsRouter = require("./routes/reviews");
 
 //Use utils
 app.use(morgan("dev"));
@@ -19,6 +20,7 @@ app.use(cors());
 app.use("/users", usersRouter);
 app.use("/camps", campsRouter);
 app.use("/reservations", reservationsRouter);
+app.use("/reviews", reviewsRouter);
 
 // ERROR HANDLERS - Catch unhandled requests and throw 404 error
 app.use((req, res, next) => {

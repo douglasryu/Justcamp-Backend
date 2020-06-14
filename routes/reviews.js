@@ -1,33 +1,32 @@
 const express = require("express");
 const { asyncHandler } = require("../utils");
-const { Reservation } = require("../db/models");
+const { Review } = require("../db/models");
 
 const router = express.Router();
 
-//Make a new reservation
+//Make a new review
 router.post("/", asyncHandler(async (req, res, next) => {
-    const { user_id, campsite_id, start_date, end_date, totalCost } = req.body;
-    const newReservation = await Reservation.create({
+    const { user_id, campsite_id, title, body } = req.body;
+    const newReview = await Review.create({
         user_id,
         campsite_id,
-        start_date,
-        end_date,
-        totalCost
+        title,
+        body
     });
 
     res.status(201);
 }));
 
 
-//Retrieve all reservations for a user
+//Retrieve all reviews for a user
 router.get("/:userId", asyncHandler(async (req, res, next) => {
-    const reservations = await Reservation.findAll({
+    const reviews = await Review.findAll({
         where: {
             user_id: req.params.userId,
         },
     });
 
-    res.json({ reservations });
+    res.json({ reviews });
 }));
 
 
